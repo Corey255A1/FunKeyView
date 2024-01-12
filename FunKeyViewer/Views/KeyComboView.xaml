@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="FunKeyViewer.Views.KeyComboView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FunKeyViewer.Views"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Color A="125" R="0" G="0" B="0" x:Key="blackTransparent"/>
+        <SolidColorBrush x:Key="blackTransparentBrush" Color="{StaticResource blackTransparent}"/>
+        <Style TargetType="TextBlock" x:Key="keyStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="48"/>
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        <Style TargetType="Border" x:Key="keyBackground">
+            <Setter Property="Background" Value="{StaticResource blackTransparentBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="CornerRadius" Value="25"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Effect">
+                <Setter.Value>                    
+                    <DropShadowEffect Color="Black" BlurRadius="4"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                    <Border Style="{StaticResource keyBackground}">
+                        
+                    </Border>
+                    <TextBlock Text="{Binding Name}" Style="{StaticResource keyStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</UserControl>

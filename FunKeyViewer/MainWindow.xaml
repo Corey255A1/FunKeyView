@@ -1,0 +1,40 @@
+﻿<Window x:Class="FunKeyViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunKeyViewer"
+        xmlns:vm="clr-namespace:FunKeyViewer.ViewModel"
+        xmlns:view="clr-namespace:FunKeyViewer.Views"
+        mc:Ignorable="d"
+        Title="WunderVision FunKeyViewer"
+        Background="Transparent" WindowStyle="None" Width="Auto" AllowsTransparency="True"
+        Topmost="True" MaxWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ItemsControl ItemsSource="{Binding KeyHistory}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel VerticalAlignment="Bottom"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <view:KeyComboView DataContext="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <view:KeyComboView Grid.Row="1" DataContext="{Binding CurrentKeys}"/>
+        <Border Grid.Row="2" Background="Black" Padding="8" CornerRadius="0 0 24 24" MouseDown="BorderMouseDown">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="WunderVision FunKeyViewer" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="White" FontSize="24"/>
+                <Button Content="X" Click="CloseClick"/>
+            </StackPanel>
+            
+        </Border>
+    </Grid>
+</Window>
