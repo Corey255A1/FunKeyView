@@ -1,27 +1,11 @@
-﻿using FunKeyViewer.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿// WunderVision 2024
+using FunKeyViewer.KeyboardUtils;
+using FunKeyViewer.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace FunKeyViewer
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindowViewModel ViewModel { get; set; }
@@ -30,6 +14,8 @@ namespace FunKeyViewer
             ViewModel = new MainWindowViewModel(this);
             DataContext = ViewModel;
             InitializeComponent();
+
+            KeyboardHookMananger.AddHook();
         }
 
         private void BorderMouseDown(object sender, MouseButtonEventArgs e)

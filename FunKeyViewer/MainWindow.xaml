@@ -9,7 +9,36 @@
         mc:Ignorable="d"
         Title="WunderVision FunKeyViewer"
         Background="Transparent" WindowStyle="None" Width="Auto" AllowsTransparency="True"
-        Topmost="True" MaxWidth="400">
+        Topmost="True" MaxWidth="480">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="titleBarText">
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+        <Style TargetType="Button" x:Key="closeButton">
+            <Setter Property="Width" Value="28"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Background" Value="DarkRed"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="8 0 8 0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="1" CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,11 +59,10 @@
         </ItemsControl>
         <view:KeyComboView Grid.Row="1" DataContext="{Binding CurrentKeys}"/>
         <Border Grid.Row="2" Background="Black" Padding="8" CornerRadius="0 0 24 24" MouseDown="BorderMouseDown">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="WunderVision FunKeyViewer" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="White" FontSize="24"/>
-                <Button Content="X" Click="CloseClick"/>
-            </StackPanel>
-            
+            <Grid Margin="8 0 8 0">
+                <TextBlock Text="WunderVision FunKeyViewer" Style="{StaticResource titleBarText}"  HorizontalAlignment="Left"/>
+                <Button Content="X" Click="CloseClick" Style="{StaticResource closeButton}" HorizontalAlignment="Right"/>
+            </Grid>
         </Border>
     </Grid>
 </Window>

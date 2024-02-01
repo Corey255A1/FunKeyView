@@ -39,10 +39,8 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                    <Border Style="{StaticResource keyBackground}">
-                        
-                    </Border>
-                    <TextBlock Text="{Binding Name}" Style="{StaticResource keyStyle}"/>
+                        <Border Style="{StaticResource keyBackground}"/>
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource keyStyle}"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
