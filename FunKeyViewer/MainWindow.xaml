@@ -53,7 +53,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <view:KeyComboView DataContext="{Binding}" FadeOut="True"/>
+                    <view:KeyComboView DataContext="{Binding}" FadeOut="True" FadeOutSeconds="{Binding DataContext.ItemRemoveSeconds, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

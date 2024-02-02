@@ -23,28 +23,12 @@
             <Setter Property="Margin" Value="4"/>
             <Setter Property="Padding" Value="8"/>
             <Setter Property="Effect">
-                <Setter.Value>                    
+                <Setter.Value>
                     <DropShadowEffect Color="Black" BlurRadius="4"/>
                 </Setter.Value>
             </Setter>
         </Style>
     </UserControl.Resources>
-    <UserControl.Style>
-        <Style TargetType="{x:Type local:KeyComboView}">
-            <Style.Triggers>
-                <Trigger Property="FadeOut" Value="True">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard 
-                                Storyboard.TargetProperty="Opacity">
-                                <DoubleAnimation BeginTime="0:0:0" Duration="0:0:1" From="1.0" To="0.0"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>
     <Grid>
         <ItemsControl ItemsSource="{Binding}">
             <ItemsControl.ItemsPanel>

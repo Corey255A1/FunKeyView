@@ -11,7 +11,7 @@ namespace FunKeyViewer.ViewModel
     public class MainWindowViewModel
     {
         public int MaxComboElementHistory { get; } = 5;
-        public int ItemRemoveSeconds { get; } = 2;
+        public double ItemRemoveSeconds { get; } = 2;
 
         private DispatcherTimer _itemRemoveTimer;
         private KeyStateManager _keyStateManager;
