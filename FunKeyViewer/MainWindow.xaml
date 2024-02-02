@@ -53,11 +53,11 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <view:KeyComboView DataContext="{Binding}"/>
+                    <view:KeyComboView DataContext="{Binding}" FadeOut="True"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <view:KeyComboView Grid.Row="1" DataContext="{Binding CurrentKeys}"/>
+        <view:KeyComboView Grid.Row="1" DataContext="{Binding CurrentKeys}" FadeOut="False"/>
         <Border Grid.Row="2" Background="Black" Padding="8" CornerRadius="0 0 24 24" MouseDown="BorderMouseDown">
             <Grid Margin="8 0 8 0">
                 <TextBlock Text="WunderVision FunKeyViewer" Style="{StaticResource titleBarText}"  HorizontalAlignment="Left"/>

@@ -10,7 +10,8 @@ namespace FunKeyViewer.ViewModel
 {
     public class MainWindowViewModel
     {
-        public const int MAX_COMBO_HISTORY = 5;
+        public int MaxComboElementHistory { get; } = 5;
+        public int ItemRemoveSeconds { get; } = 2;
 
         private DispatcherTimer _itemRemoveTimer;
         private KeyStateManager _keyStateManager;
@@ -24,7 +25,7 @@ namespace FunKeyViewer.ViewModel
             _keyStateManager.KeyPressed += KeyStateManagerKeyPressed;
 
             _itemRemoveTimer = new DispatcherTimer();
-            _itemRemoveTimer.Interval = TimeSpan.FromSeconds(2);
+            _itemRemoveTimer.Interval = TimeSpan.FromSeconds(ItemRemoveSeconds);
             _itemRemoveTimer.Tick += ItemRemoveTimer;
         }
 
@@ -50,7 +51,7 @@ namespace FunKeyViewer.ViewModel
             CurrentKeys.Clear();
             _itemRemoveTimer.Stop();
             _itemRemoveTimer.Start();
-            if (KeyHistory.Count > MAX_COMBO_HISTORY)
+            if (KeyHistory.Count > MaxComboElementHistory)
             {
                 RemoveOldestKeyCombo();
             }
